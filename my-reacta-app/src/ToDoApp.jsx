@@ -2,7 +2,19 @@ import React, {useState} from "react";
 
 function ToDoApp(){
 
-    let ToDoList = ["Do Dishes", "Clean the car","Mop the floor"]
+    const [ToDoList, setToDoList]=useState(["Do Dishes", "Clean the car","Mop the floor"]);
+
+    function handleAddChore(){
+        let Chore = document.getElementById("Input").value;
+        if(Chore!==""){
+            setToDoList(ToDo=>[...ToDo, Chore]);
+            document.getElementById("Input").value = "";
+            
+        }
+
+    }
+
+
     return(
         <div className="AppContainer">
             <h1 id="h1">To Do List</h1>
@@ -13,8 +25,8 @@ function ToDoApp(){
                     <button className="ChoreButton">Delete</button>
                     </li>)}
             </ul>
-            <input id = "Input"type="text" placeholder="Enter your thing to do" />
-            <button id="AddButton">Add</button>
+            <input id = "Input"type="text"  placeholder="Enter your thing to do" />
+            <button id="AddButton" onClick={handleAddChore}>Add</button>
         </div>
     );
 
