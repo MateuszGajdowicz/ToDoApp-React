@@ -13,20 +13,49 @@ function ToDoApp(){
         }
 
     }
+    function handleUpChore(index){
+        if(index>0){
+            const updatedList = [...ToDoList];
+            [updatedList[index], updatedList[index-1]]=
+            [updatedList[index-1],updatedList[index]];
+            setToDoList(updatedList);
+
+        }
+
+
+    }
+    function handleDownChore(index){
+        if(index<ToDoList.length-1){
+            const updatedList = [...ToDoList];
+            [updatedList[index+1], updatedList[index]]=
+            [updatedList[index],updatedList[index+1]];
+            setToDoList(updatedList);
+            
+        }
+
+
+    }
+    function handleDelete(index){
+        const UpdatedList = ToDoList.filter((element,i)=>i!==index);
+        setToDoList(UpdatedList);
+
+
+    }
 
 
     return(
         <div className="AppContainer">
             <h1 id="h1">To Do List</h1>
             <ul>
-                {ToDoList.map(element=><li>{element} 
-                    <button className="ChoreButton">Up</button>
-                    <button className="ChoreButton">Down</button>
-                    <button className="ChoreButton">Delete</button>
+                {ToDoList.map((element, index)=><li key={index}>
+                    {element} 
+                    <button id="button1"className="ChoreButton"onClick={()=>handleUpChore(index)}>Up</button>
+                    <button id="button2"className="ChoreButton"onClick={()=>handleDownChore(index)}>Down</button>
+                    <button id="button3"className="ChoreButton"onClick={()=>handleDelete(index)}>Delete</button>
                     </li>)}
             </ul>
             <input id = "Input"type="text"  placeholder="Enter your thing to do" />
-            <button id="AddButton" onClick={handleAddChore}>Add</button>
+            <button id="AddButton" className="ChoreButton"onClick={handleAddChore}>Add</button>
         </div>
     );
 

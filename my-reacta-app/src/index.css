@@ -1,21 +1,23 @@
 body{
-  background-color: hsl(202, 75%, 70%);
+  background-color: hsl(202, 75%, 50%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
   text-align: center;
 }
-.AppContainer{
+h1{
+  font-size: 3em;
+  color: white;
 }
 li{
   list-style-type: none;
-  background-color: hsl(202, 75%, 80%);
+  background-color: hsl(202, 75%, 70%);
   margin: 10px;
   padding: 15px;
   padding-right: 0px;
   width: 500px;
-  border: 5px solid hsl(202, 75%, 60%);
+  border: 5px solid hsl(202, 75%, 40%);
   border-radius:20px;
   font-size: 1.5em;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,15 +25,40 @@ li{
   display: flex;
   align-items: center;
   position: relative;
+  color: white;
   }
 
 .ChoreButton{
-  margin-left:auto;
-  text-align: right;
-
-  
-
+  position: absolute;
+  padding: 10px;
+  border-radius: 7px;
+  background-color: hsl(202, 75%, 60%);
+  color: white;
+  font-weight: bold;
+  border: white 3px solid;
+  transition: 0.3s ease;
 }
+.ChoreButton:hover{
+  background-color: hsl(202, 75%, 75%);
+}
+
+#button1{
+  right: 160px;
+}
+#button2{
+  right: 90px;
+}
+#button3{
+  right: 20px;
+}
+#button3:hover{
+  background-color: red;
+}
+
 #Input{
+  padding: 10px;
+  border-radius: 15px;
+}
+#Input,#AddButton{
   font-size: 1.5em;
 }
